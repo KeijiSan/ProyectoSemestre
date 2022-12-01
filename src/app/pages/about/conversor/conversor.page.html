@@ -1,0 +1,30 @@
+<app-header [isNotHome]="isNotHome" [pageTitle]="pageTitle"></app-header>
+
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card>
+  <ion-item>
+    <span>Valor Dolar</span>
+    <span slot="end">{{conversor?.valor}}$</span>
+  </ion-item>
+</ion-card> 
+
+<ion-card>
+  <ion-item>
+    <span>Valor Euro</span>
+    <span slot="end">{{euro?.valor}}$</span>
+  </ion-item>
+</ion-card> 
+</ion-content>

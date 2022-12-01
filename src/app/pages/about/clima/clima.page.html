@@ -1,0 +1,55 @@
+<app-header [isNotHome]="isNotHome" [pageTitle]="pageTitle"></app-header>
+
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div style="text-align: center; margin: 15px;">
+    <ion-label style="font-weight:400; font-size: 1.5em;">Pronostico del clima</ion-label>
+  </div>
+  <ion-searchbar [(ngModel)]="cityName" (ngModalChange)="loadData()" placeholder="Buscar Por Ciudad" class="searchBar" animated></ion-searchbar>
+ 
+  <ion-card class="cardStyle">
+    <ion-item lines="none">
+      <p style="font-weight: 500; color: white;">Reporte del dia</p>
+      <ion-label id="date" slot="end">{{todayDate | date: "EEE dd MM"}}</ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <span id="temp">{{(weatherTemp?.temp - 273.15).toFixed(0)}}</span>
+      <span style="font-size: 1.3em; font-weight: bold; color: #F6B844;margin-bottom: 25px;">o</span>
+      <img slot="end" width="180px" height="180px" [src]=weatherIcon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon id="locationIcon" name="location"></ion-icon>
+      <span>{{cityName}}</span>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="cardStyle">
+    <ion-item>
+      <span >Temperatura Maxima</span>
+      <span slot="end">{{(weatherTemp?.temp_max - 273.15).toFixed(0)}}</span>
+    </ion-item>
+    <ion-item>
+      <span>Temperatura Minima</span>
+      <span slot="end">{{(weatherTemp?.temp_min - 273.15).toFixed(0)}}</span>
+
+    </ion-item>
+    <ion-item>
+      <span>Humedad</span>
+      <span slot="end">{{weatherTemp?.humidity}}%</span>
+    </ion-item>
+
+  </ion-card>
+  
+</ion-content>
+
+
