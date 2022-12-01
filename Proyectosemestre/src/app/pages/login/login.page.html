@@ -1,0 +1,32 @@
+<app-header [isNotHome]="isNotHome" [pageTitle]="pageTitle"></app-header>
+
+<ion-content>
+    <ion-card style="margin-top: 100px;border-top: 3px solid gray">
+        <ion-card-title color="medium" class="ion-text-center">
+            <ion-label>
+                <br>
+                <h1>Login in</h1>
+            </ion-label>
+        </ion-card-title>
+        <ion-card-content>
+            <ion-item>
+                <ion-label position="floating">Usuario</ion-label>
+                <ion-input  type="text" 
+                            [(ngModel)]="user.username" 
+                            placeholder="correo@correo.com"
+                            pattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" 
+                            required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input  type="password" 
+                            [(ngModel)]="user.password"
+                            pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{4,6}$"
+                            required></ion-input>   
+            </ion-item>
+        </ion-card-content>
+        <br>
+        <br>
+        <ion-button  full outline shape="block" (click)="ingresar()" href="/home" color="success">Login</ion-button>
+    </ion-card>
+</ion-content>
