@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons *ngIf="isNotHome" slot="start">
+      <ion-back-button [defaultHref]="['/']" color="light">Back</ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-capitalize">{{pageTitle}}</ion-title>
+    <img class="logo-header" src="../../../assets/img/rocket.svg" alt="Logo Rocket">
+  </ion-toolbar>
+</ion-header>
